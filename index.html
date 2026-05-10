@@ -1,517 +1,1034 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alberto Pérez García — Senior Frontend Developer</title>
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alberto Pérez García — Senior Frontend Developer</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  :root {
-    --bg: #0d1117;
-    --bg2: #161b22;
-    --bg3: #21262d;
-    --border: rgba(255,255,255,0.08);
-    --border2: rgba(255,255,255,0.14);
-    --text: #e6edf3;
-    --text2: #8b949e;
-    --text3: #6e7681;
-    --accent: #58a6ff;
-    --accent2: #3fb950;
-    --gold: #d29922;
-    --gold2: #ffa657;
-    --radius: 10px;
-    --radius2: 6px;
-  }
+    :root {
+      --bg: #0d1117;
+      --bg2: #161b22;
+      --bg3: #21262d;
+      --border: rgba(255, 255, 255, 0.08);
+      --border2: rgba(255, 255, 255, 0.14);
+      --text: #e6edf3;
+      --text2: #8b949e;
+      --text3: #6e7681;
+      --accent: #58a6ff;
+      --accent2: #3fb950;
+      --gold: #d29922;
+      --gold2: #ffa657;
+      --radius: 10px;
+      --radius2: 6px;
+    }
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
 
-  .page { max-width: 780px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+    .page {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
 
-  /* HERO */
-  .hero { margin-bottom: 3rem; }
-  .hero-top { display: flex; align-items: flex-start; gap: 1.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
-  .avatar {
-    width: 72px; height: 72px; border-radius: 50%;
-    background: linear-gradient(135deg, #1f6feb, #388bfd);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 26px; font-weight: 600; color: #fff; flex-shrink: 0;
-    border: 2px solid var(--border2);
-  }
-  .hero-info { flex: 1; min-width: 200px; }
-  .hero-name { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; line-height: 1.2; }
-  .hero-title { font-size: 15px; color: var(--text2); margin-top: 4px; font-weight: 400; }
-  .badge-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
-  .badge {
-    background: rgba(56,139,253,0.1); border: 1px solid rgba(56,139,253,0.25);
-    color: #79c0ff; font-size: 11px; font-weight: 500; padding: 3px 8px;
-    border-radius: 20px; letter-spacing: 0.3px;
-  }
-  .badge.green { background: rgba(46,160,67,0.1); border-color: rgba(46,160,67,0.25); color: #56d364; }
-  .badge.gold { background: rgba(210,153,34,0.1); border-color: rgba(210,153,34,0.25); color: #e3b341; }
+    /* HERO */
+    .hero {
+      margin-bottom: 3rem;
+    }
 
-  .contacts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1.2rem; }
-  .contact-btn {
-    display: flex; align-items: center; gap: 6px;
-    background: var(--bg2); border: 1px solid var(--border2);
-    color: var(--text2); font-size: 12px; padding: 6px 12px;
-    border-radius: var(--radius2); cursor: pointer; text-decoration: none;
-    transition: border-color 0.2s, color 0.2s;
-  }
-  .contact-btn:hover { border-color: var(--accent); color: var(--accent); }
-  .contact-btn svg { width: 13px; height: 13px; flex-shrink: 0; }
+    .hero-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
 
-  .hero-bio {
-    background: var(--bg2); border: 1px solid var(--border);
-    border-left: 3px solid var(--accent);
-    border-radius: var(--radius2); padding: 1rem 1.25rem;
-    font-size: 13.5px; line-height: 1.7; color: var(--text2);
-  }
+    .avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1f6feb, #388bfd);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      font-weight: 600;
+      color: #fff;
+      flex-shrink: 0;
+      border: 2px solid var(--border2);
+    }
 
-  /* STATS */
-  .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 2.5rem; }
-  .stat-card {
-    background: var(--bg2); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 1rem;
-    text-align: center;
-  }
-  .stat-num { font-size: 28px; font-weight: 700; color: var(--accent); line-height: 1; }
-  .stat-num.gold { color: var(--gold); }
-  .stat-num.green { color: var(--accent2); }
-  .stat-label { font-size: 11px; color: var(--text3); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .hero-info {
+      flex: 1;
+      min-width: 200px;
+    }
 
-  /* SECTION */
-  .section { margin-bottom: 2.5rem; }
-  .section-header {
-    display: flex; align-items: center; gap: 10px;
-    font-size: 13px; font-weight: 600; color: var(--text3);
-    text-transform: uppercase; letter-spacing: 1px;
-    border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 1.25rem;
-  }
-  .section-header svg { width: 14px; height: 14px; }
+    .hero-name {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+    }
 
-  /* EXPERIENCE */
-  .exp-card {
-    background: var(--bg2); border: 1px solid var(--border);
-    border-radius: var(--radius); overflow: hidden; margin-bottom: 12px;
-  }
-  .exp-header {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1rem 1.25rem; cursor: pointer; gap: 12px;
-    transition: background 0.15s;
-  }
-  .exp-header:hover { background: var(--bg3); }
-  .exp-left { display: flex; align-items: center; gap: 12px; min-width: 0; }
-  .company-icon {
-    width: 36px; height: 36px; border-radius: var(--radius2); flex-shrink: 0;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 11px; font-weight: 700; letter-spacing: -0.5px;
-  }
-  .ci-ntt { background: rgba(56,139,253,0.15); color: #79c0ff; border: 1px solid rgba(56,139,253,0.2); }
-  .exp-info h3 { font-size: 14px; font-weight: 600; color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .exp-info p { font-size: 12px; color: var(--text2); margin-top: 2px; }
-  .exp-meta { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
-  .period { font-size: 11px; color: var(--text3); white-space: nowrap; }
-  .chevron { transition: transform 0.25s; color: var(--text3); }
-  .chevron.open { transform: rotate(90deg); }
+    .hero-title {
+      font-size: 15px;
+      color: var(--text2);
+      margin-top: 4px;
+      font-weight: 400;
+    }
 
-  .exp-body { border-top: 1px solid var(--border); padding: 1rem 1.25rem; display: none; }
-  .exp-body.open { display: block; }
-  .exp-items { list-style: none; display: grid; gap: 6px; }
-  .exp-items li { font-size: 13px; color: var(--text2); display: flex; gap: 8px; line-height: 1.5; }
-  .exp-items li::before { content: '▸'; color: var(--accent); flex-shrink: 0; font-size: 10px; margin-top: 3px; }
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
 
-  /* SKILLS */
-  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
-  .skill-group {
-    background: var(--bg2); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 1rem 1.25rem;
-  }
-  .skill-group-title { font-size: 11px; font-weight: 600; color: var(--text3); text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 10px; }
-  .skill-item { margin-bottom: 10px; }
-  .skill-item:last-child { margin-bottom: 0; }
-  .skill-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
-  .skill-name { font-size: 13px; color: var(--text); }
-  .skill-lvl { font-size: 11px; color: var(--text3); }
-  .skill-bar { height: 4px; background: var(--bg3); border-radius: 2px; overflow: hidden; }
-  .skill-fill { height: 100%; border-radius: 2px; transition: width 1s ease; }
-  .fill-blue { background: var(--accent); }
-  .fill-green { background: var(--accent2); }
-  .fill-gold { background: var(--gold); }
+    .badge {
+      background: rgba(56, 139, 253, 0.1);
+      border: 1px solid rgba(56, 139, 253, 0.25);
+      color: #79c0ff;
+      font-size: 11px;
+      font-weight: 500;
+      padding: 3px 8px;
+      border-radius: 20px;
+      letter-spacing: 0.3px;
+    }
 
-  /* TECH CHIPS */
-  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
-  .chip {
-    font-size: 12px; padding: 4px 10px; border-radius: 20px;
-    border: 1px solid var(--border2); color: var(--text2);
-    background: var(--bg2);
-  }
+    .badge.green {
+      background: rgba(46, 160, 67, 0.1);
+      border-color: rgba(46, 160, 67, 0.25);
+      color: #56d364;
+    }
 
-  /* COMPETENCIAS */
-  .comp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; }
-  .comp-item {
-    background: var(--bg2); border: 1px solid var(--border);
-    border-radius: var(--radius2); padding: 10px 12px;
-    font-size: 13px; color: var(--text2);
-    display: flex; align-items: center; gap: 8px;
-  }
-  .comp-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent2); flex-shrink: 0; }
+    .badge.gold {
+      background: rgba(210, 153, 34, 0.1);
+      border-color: rgba(210, 153, 34, 0.25);
+      color: #e3b341;
+    }
 
-  /* EDUCATION */
-  .edu-card {
-    background: var(--bg2); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 1rem 1.25rem;
-    display: flex; gap: 12px; align-items: flex-start;
-  }
-  .edu-icon {
-    width: 36px; height: 36px; flex-shrink: 0;
-    background: rgba(210,153,34,0.12); border: 1px solid rgba(210,153,34,0.2);
-    border-radius: var(--radius2); display: flex; align-items: center; justify-content: center;
-  }
-  .edu-icon svg { width: 16px; height: 16px; color: var(--gold); }
-  .edu-title { font-size: 14px; font-weight: 600; }
-  .edu-sub { font-size: 12px; color: var(--text2); margin-top: 3px; }
-  .edu-period { font-size: 11px; color: var(--text3); margin-top: 2px; }
+    .contacts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 1.2rem;
+    }
 
-  /* FOOTER */
-  .footer { text-align: center; padding-top: 2rem; border-top: 1px solid var(--border); margin-top: 1rem; }
-  .footer p { font-size: 12px; color: var(--text3); }
+    .contact-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--bg2);
+      border: 1px solid var(--border2);
+      color: var(--text2);
+      font-size: 12px;
+      padding: 6px 12px;
+      border-radius: var(--radius2);
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
 
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
-  .section { animation: fadeUp 0.4s ease both; }
-  .section:nth-child(1) { animation-delay: 0.05s; }
-  .section:nth-child(2) { animation-delay: 0.1s; }
-  .section:nth-child(3) { animation-delay: 0.15s; }
-  .section:nth-child(4) { animation-delay: 0.2s; }
-  .section:nth-child(5) { animation-delay: 0.25s; }
-</style>
-</head>
-<body>
-<div class="page">
+    .contact-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
 
-  <!-- HERO -->
-  <div class="hero" style="animation: fadeUp 0.4s ease both;">
-    <div class="hero-top">
-      <div class="avatar">AP</div>
-      <div class="hero-info">
-        <div class="hero-name">Alberto Pérez García</div>
-        <div class="hero-title">Senior Frontend Developer · Tech Lead</div>
-        <div class="badge-row">
-          <span class="badge">Angular · Experto</span>
-          <span class="badge">Vue.js</span>
-          <span class="badge">Next.js</span>
-          <span class="badge green">+6 años</span>
-          <span class="badge gold">Tech Lead</span>
-        </div>
-      </div>
-    </div>
-    <div class="contacts">
-      <a href="mailto:albertopg2003@yahoo.es" class="contact-btn">
-        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0114.25 14H1.75A1.75 1.75 0 010 12.25v-8.5C0 2.784.784 2 1.75 2zM1.5 5.197V12.25c0 .138.112.25.25.25h12.5a.25.25 0 00.25-.25V5.197L8.608 9.768a.75.75 0 01-.916 0L1.5 5.197zm.041-1.568L8 8.092l6.459-4.463H1.541z"/></svg>
-        albertopg2003@yahoo.es
-      </a>
-      <a href="tel:+34667385091" class="contact-btn">
-        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M1.885.511a1.745 1.745 0 012.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 00.178.643l2.457 2.457a.678.678 0 00.644.178l2.189-.547a1.745 1.745 0 011.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 01-7.01-4.42 18.634 18.634 0 01-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/></svg>
-        667 385 091
-      </a>
-      <a href="https://linkedin.com/in/alberto-pérez-garcía-902880158" target="_blank" class="contact-btn">
-        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 01.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></svg>
-        LinkedIn
-      </a>
-    </div>
-    <div class="hero-bio" style="margin-top: 1.25rem;">
-      En NTT DATA lidero un equipo frontend desarrollando plataformas de movilidad urbana para administración pública, activas en múltiples regiones de España y Portugal. He participado en el ciclo completo de varios productos: desde el diseño de arquitectura hasta su mantenimiento en producción, trabajando directamente con cliente y stakeholders.<br><br>Fuera del trabajo llevo proyectos propios de cero a producción, lo que me ha dado una visión completa del desarrollo de producto más allá del frontend.
-    </div>
-  </div>
+    .contact-btn svg {
+      width: 13px;
+      height: 13px;
+      flex-shrink: 0;
+    }
 
-  <!-- STATS -->
-  <div class="stats-grid" style="animation: fadeUp 0.4s ease 0.08s both;">
-    <div class="stat-card">
-      <div class="stat-num">6+</div>
-      <div class="stat-label">Años de exp.</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num gold">3</div>
-      <div class="stat-label">Devs liderados</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num green">2</div>
-      <div class="stat-label">Países (ES / PT)</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num" style="color: #c778dd;">5+</div>
-      <div class="stat-label">Tecnologías</div>
-    </div>
-  </div>
+    .hero-bio {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--radius2);
+      padding: 1rem 1.25rem;
+      font-size: 13.5px;
+      line-height: 1.7;
+      color: var(--text2);
+    }
 
-  <!-- EXPERIENCIA -->
-  <div class="section">
-    <div class="section-header">
-      <svg viewBox="0 0 16 16" fill="currentColor"><path d="M10.5 1.5A1.5 1.5 0 009 0H7a1.5 1.5 0 00-1.5 1.5V3h5V1.5zM2 3a2 2 0 00-2 2v9a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H2zm1 4.25a.75.75 0 01.75-.75h8.5a.75.75 0 010 1.5h-8.5A.75.75 0 013 7.25zm.75 2.75a.75.75 0 000 1.5H8a.75.75 0 000-1.5H3.75z"/></svg>
-      Experiencia profesional
-    </div>
+    /* STATS */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 10px;
+      margin-bottom: 2.5rem;
+    }
 
-    <div class="exp-card">
-      <div class="exp-header" onclick="toggleExp(this)">
-        <div class="exp-left">
-          <div class="company-icon ci-ntt">NTT</div>
-          <div class="exp-info">
-            <h3>Senior Frontend Developer / Tech Lead</h3>
-            <p>NTT DATA · Tiempo completo</p>
-          </div>
-        </div>
-        <div class="exp-meta">
-          <span class="period">2019 — Actualidad</span>
-          <svg class="chevron" viewBox="0 0 16 16" fill="currentColor" width="12" height="12"><path d="M6.22 3.22a.75.75 0 011.06 0l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 010-1.06z"/></svg>
-        </div>
-      </div>
-      <div class="exp-body">
-        <ul class="exp-items">
-          <li>Liderazgo técnico de equipo frontend (3 desarrolladores)</li>
-          <li>Desarrollo de plataformas de movilidad urbana para administración pública</li>
-          <li>Producto core de movilidad desplegado en múltiples regiones (España y Portugal) con Vue.js</li>
-          <li>Diseño de arquitectura frontend y toma de decisiones técnicas</li>
-          <li>Desarrollo de aplicaciones desde cero con Angular</li>
-          <li>Implementación de funcionalidades complejas y optimización de rendimiento</li>
-          <li>Colaboración directa con cliente y stakeholders</li>
-          <li>Mejora continua del código en producción y mantenimiento evolutivo</li>
-          <li>Trabajo en entornos ágiles (Scrum)</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+    .stat-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem;
+      text-align: center;
+    }
 
-  <!-- HABILIDADES -->
-  <div class="section">
-    <div class="section-header">
-      <svg viewBox="0 0 16 16" fill="currentColor"><path d="M5.5 3.5a2 2 0 100 4 2 2 0 000-4zM1 5.5a4.5 4.5 0 117.851 3.041L15.07 15.07a.75.75 0 11-1.06 1.06l-6.22-6.218A4.5 4.5 0 011 5.5z"/></svg>
-      Stack técnico
-    </div>
-    <div class="skills-grid">
-      <div class="skill-group">
-        <div class="skill-group-title">Frontend</div>
-        <div class="skill-item">
-          <div class="skill-row"><span class="skill-name">Angular</span><span class="skill-lvl">Experto</span></div>
-          <div class="skill-bar"><div class="skill-fill fill-blue" style="width: 95%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-row"><span class="skill-name">React</span><span class="skill-lvl">Experto</span></div>
-          <div class="skill-bar"><div class="skill-fill fill-blue" style="width: 95%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-row"><span class="skill-name">TypeScript</span><span class="skill-lvl">Avanzado</span></div>
-          <div class="skill-bar"><div class="skill-fill fill-blue" style="width: 90%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-row"><span class="skill-name">Vue.js</span><span class="skill-lvl">Avanzado</span></div>
-          <div class="skill-bar"><div class="skill-fill fill-green" style="width: 82%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-row"><span class="skill-name">Next.js</span><span class="skill-lvl">Intermedio</span></div>
-          <div class="skill-bar"><div class="skill-fill fill-green" style="width: 68%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-row"><span class="skill-name">JavaScript</span><span class="skill-lvl">Experto</span></div>
-          <div class="skill-bar"><div class="skill-fill fill-blue" style="width: 92%"></div></div>
-        </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-title">UI & Backend</div>
-        <div class="skill-item">
-          <div class="skill-row"><span class="skill-name">SCSS / CSS</span><span class="skill-lvl">Avanzado</span></div>
-          <div class="skill-bar"><div class="skill-fill fill-blue" style="width: 88%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-row"><span class="skill-name">Bootstrap</span><span class="skill-lvl">Avanzado</span></div>
-          <div class="skill-bar"><div class="skill-fill fill-gold" style="width: 80%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-row"><span class="skill-name">Node.js / Express</span><span class="skill-lvl">Intermedio</span></div>
-          <div class="skill-bar"><div class="skill-fill fill-green" style="width: 62%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-row"><span class="skill-name">.Net</span><span class="skill-lvl">Intermedio</span></div>
-          <div class="skill-bar"><div class="skill-fill fill-gold" style="width: 60%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-row"><span class="skill-name">Java / C#</span><span class="skill-lvl">Básico</span></div>
-          <div class="skill-bar"><div class="skill-fill fill-gold" style="width: 40%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-row"><span class="skill-name">MySQL</span><span class="skill-lvl">Intermedio</span></div>
-          <div class="skill-bar"><div class="skill-fill fill-gold" style="width: 60%"></div></div>
-        </div>
-      </div>
-    </div>
-    <div style="margin-top: 12px;">
-      <div class="chips">
-        <span class="chip">Git</span>
-        <span class="chip">REST APIs</span>
-        <span class="chip">Agile / Scrum</span>
-        <span class="chip">HTML5</span>
-        <span class="chip">Webpack</span>
-        <span class="chip">RxJS</span>
-        <span class="chip">NgRx</span>
-        <span class="chip">Pinia / Vuex</span>
-      </div>
-    </div>
-  </div>
+    .stat-num {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+    }
 
-  <!-- PROYECTOS -->
-  <div class="section">
-    <div class="section-header">
-      <svg viewBox="0 0 16 16" fill="currentColor"><path d="M2 2.5A2.5 2.5 0 014.5 0h7A2.5 2.5 0 0114 2.5v10a2.5 2.5 0 01-2.5 2.5h-7A2.5 2.5 0 012 12.5v-10zm2.5-1a1 1 0 00-1 1v10a1 1 0 001 1h7a1 1 0 001-1v-10a1 1 0 00-1-1h-7zM5.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zm0 3a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zm0 3a.75.75 0 000 1.5h2.5a.75.75 0 000-1.5h-2.5z"/></svg>
-      Proyectos destacados
-    </div>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px;">
+    .stat-num.gold {
+      color: var(--gold);
+    }
 
-      <div class="exp-card" style="margin-bottom: 0;">
-        <div style="padding: 1rem 1.25rem;">
-          <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 8px;">
-            <div style="display: flex; align-items: center; gap: 10px;">
-              <div style="width: 36px; height: 36px; border-radius: 6px; background: rgba(63,185,80,0.12); border: 1px solid rgba(63,185,80,0.2); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0;">🎲</div>
-              <div>
-                <div style="font-size: 14px; font-weight: 600;">La Casa de los Juegos</div>
-                <div style="font-size: 12px; color: var(--text2); margin-top: 1px;">lacasadelosjuegos.com</div>
-              </div>
-            </div>
-            <div style="display: flex; gap: 8px; align-items: center; padding-top: 2px;">
-              <a href="https://github.com/Asere2003/la-casa-de-los-juegos" target="_blank" style="color: var(--text2); text-decoration: none; font-size: 11px; white-space: nowrap; display: flex; align-items: center; gap: 3px;">
-                <svg viewBox="0 0 16 16" fill="currentColor" width="12" height="12"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-                Código
-              </a>
-              <a href="https://lacasadelosjuegos.com" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 11px; white-space: nowrap; display: flex; align-items: center; gap: 3px;">
-                Demo
-                <svg viewBox="0 0 16 16" fill="currentColor" width="10" height="10"><path d="M3.75 2h3.5a.75.75 0 010 1.5h-3.5a.25.25 0 00-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 00.25-.25v-3.5a.75.75 0 011.5 0v3.5A1.75 1.75 0 0112.25 14h-8.5A1.75 1.75 0 012 12.25v-8.5C2 2.784 2.784 2 3.75 2zm6.854-1h4.146a.25.25 0 01.25.25v4.146a.25.25 0 01-.427.177L13.03 4.03 9.28 7.78a.75.75 0 01-1.06-1.06l3.75-3.75-1.543-1.543A.25.25 0 0110.604 1z"/></svg>
-              </a>
-            </div>
-          </div>
-          <p style="font-size: 13px; color: var(--text2); line-height: 1.6; margin-bottom: 10px;">Ecommerce completo de juegos de mesa construido en solitario, de cero a producción. Incluye catálogo, carrito, checkout con Stripe, panel de administración y sistema de pedidos.</p>
-          <div style="display: flex; flex-wrap: wrap; gap: 5px;">
-            <span class="badge green">Next.js 14</span>
-            <span class="badge">Supabase</span>
-            <span class="badge">Stripe</span>
-            <span class="badge">TypeScript</span>
-            <span class="badge gold">Solo dev</span>
-          </div>
-        </div>
-      </div>
+    .stat-num.green {
+      color: var(--accent2);
+    }
 
-      <div class="exp-card" style="margin-bottom: 0;">
-        <div style="padding: 1rem 1.25rem;">
-          <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px;">
-            <div style="width: 36px; height: 36px; border-radius: 6px; background: rgba(56,139,253,0.12); border: 1px solid rgba(56,139,253,0.2); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0;">🚌</div>
-            <div>
-              <div style="font-size: 14px; font-weight: 600;">Plataforma de Movilidad Urbana</div>
-              <div style="font-size: 12px; color: var(--text2); margin-top: 1px;">NTT DATA · España & Portugal</div>
-            </div>
-          </div>
-          <p style="font-size: 13px; color: var(--text2); line-height: 1.6; margin-bottom: 10px;">Producto core de movilidad para administración pública desplegado en múltiples regiones. Arquitectura frontend, liderazgo de equipo y desarrollo de funcionalidades críticas.</p>
-          <div style="display: flex; flex-wrap: wrap; gap: 5px;">
-            <span class="badge">Vue.js</span>
-            <span class="badge">Angular</span>
-            <span class="badge gold">Tech Lead</span>
-            <span class="badge">Scrum</span>
-          </div>
-        </div>
-      </div>
+    .stat-label {
+      font-size: 11px;
+      color: var(--text3);
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
 
-      <div class="exp-card" style="margin-bottom: 0;">
-        <div style="padding: 1rem 1.25rem;">
-          <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 8px;">
-            <div style="display: flex; align-items: center; gap: 10px;">
-              <div style="width: 36px; height: 36px; border-radius: 6px; background: rgba(210,153,34,0.12); border: 1px solid rgba(210,153,34,0.2); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0;">🔧</div>
-              <div>
-                <div style="font-size: 14px; font-weight: 600;">Neumáticos Ramos</div>
-                <div style="font-size: 12px; color: var(--text2); margin-top: 1px;">neumaticosramos.es</div>
-              </div>
-            </div>
-            <a href="https://www.neumaticosramos.es" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 11px; white-space: nowrap; display: flex; align-items: center; gap: 3px; padding-top: 2px;">
-              Demo
-              <svg viewBox="0 0 16 16" fill="currentColor" width="10" height="10"><path d="M3.75 2h3.5a.75.75 0 010 1.5h-3.5a.25.25 0 00-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 00.25-.25v-3.5a.75.75 0 011.5 0v3.5A1.75 1.75 0 0112.25 14h-8.5A1.75 1.75 0 012 12.25v-8.5C2 2.784 2.784 2 3.75 2zm6.854-1h4.146a.25.25 0 01.25.25v4.146a.25.25 0 01-.427.177L13.03 4.03 9.28 7.78a.75.75 0 01-1.06-1.06l3.75-3.75-1.543-1.543A.25.25 0 0110.604 1z"/></svg>
-            </a>
-          </div>
-          <p style="font-size: 13px; color: var(--text2); line-height: 1.6; margin-bottom: 10px;">Web corporativa para negocio local de automoción. Diseño, desarrollo y puesta en producción como proyecto freelance.</p>
-          <div style="display: flex; flex-wrap: wrap; gap: 5px;">
-            <span class="badge">Angular</span>
-            <span class="badge">TypeScript</span>
-            <span class="badge">Railway</span>
-            <span class="badge gold">Freelance</span>
-          </div>
-        </div>
-      </div>
+    /* SECTION */
+    .section {
+      margin-bottom: 2.5rem;
+    }
 
-    </div>
-  </div>
-  <div class="section">
-    <div class="section-header">
-      <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 110 16A8 8 0 018 0zm1.5 4.5a1.5 1.5 0 10-3 0 1.5 1.5 0 003 0zM7.25 7.75a.75.75 0 000 1.5h.5v3h-.5a.75.75 0 000 1.5h2.5a.75.75 0 000-1.5h-.5v-4a.75.75 0 00-.75-.75h-1.25z"/></svg>
-      Competencias
-    </div>
-    <div class="comp-grid">
-      <div class="comp-item"><div class="comp-dot"></div> Liderazgo técnico</div>
-      <div class="comp-item"><div class="comp-dot"></div> Trabajo en equipo</div>
-      <div class="comp-item"><div class="comp-dot"></div> Comunicación con cliente</div>
-      <div class="comp-item"><div class="comp-dot"></div> Resolución de problemas</div>
-      <div class="comp-item"><div class="comp-dot"></div> Adaptabilidad</div>
-      <div class="comp-item"><div class="comp-dot"></div> Aprendizaje continuo</div>
-    </div>
-  </div>
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text3);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+      margin-bottom: 1.25rem;
+    }
 
-  <!-- EDUCACIÓN -->
-  <div class="section">
-    <div class="section-header">
-      <svg viewBox="0 0 16 16" fill="currentColor"><path d="M1.5 6.5A1.5 1.5 0 013 5h10a1.5 1.5 0 011.5 1.5V10h-1V6.5a.5.5 0 00-.5-.5H3a.5.5 0 00-.5.5V10h-1V6.5z"/><path d="M3 10.5A1.5 1.5 0 011.5 12v1A1.5 1.5 0 003 14.5h10A1.5 1.5 0 0014.5 13v-1A1.5 1.5 0 0013 10.5H3z"/><path d="M8 0L1 3.5 8 7l7-3.5L8 0zM2 5.325v2.6l6 3 6-3v-2.6L8 8.25 2 5.325z"/></svg>
-      Educación
-    </div>
-    <div class="edu-card">
-      <div class="edu-icon">
-        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0L1 3.5 8 7l7-3.5L8 0zM2 5.325v2.6l6 3 6-3v-2.6L8 8.25 2 5.325z"/></svg>
-      </div>
-      <div>
-        <div class="edu-title">Técnico Superior en Desarrollo de Aplicaciones Web</div>
-        <div class="edu-sub">Escuela Artegranada · Granada, España</div>
-        <div class="edu-period">2017 — 2019</div>
-      </div>
-    </div>
-  </div>
+    .section-header svg {
+      width: 14px;
+      height: 14px;
+    }
 
-  <div class="footer">
-    <p>Alberto Pérez García · Senior Frontend Developer · Granada, España · 2025</p>
-  </div>
+    /* EXPERIENCE */
+    .exp-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
 
-</div>
+    .exp-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.25rem;
+      cursor: pointer;
+      gap: 12px;
+      transition: background 0.15s;
+    }
 
-<script>
-function toggleExp(header) {
-  const body = header.nextElementSibling;
-  const chevron = header.querySelector('.chevron');
-  const isOpen = body.classList.contains('open');
-  body.classList.toggle('open', !isOpen);
-  chevron.classList.toggle('open', !isOpen);
-}
+    .exp-header:hover {
+      background: var(--bg3);
+    }
 
-document.addEventListener('DOMContentLoaded', () => {
-  const fills = document.querySelectorAll('.skill-fill');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        const w = e.target.style.width;
-        e.target.style.width = '0';
-        requestAnimationFrame(() => { e.target.style.width = w; });
-        observer.unobserve(e.target);
+    .exp-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .company-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius2);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .ci-ntt {
+      background: rgba(56, 139, 253, 0.15);
+      color: #79c0ff;
+      border: 1px solid rgba(56, 139, 253, 0.2);
+    }
+
+    .exp-info h3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .exp-info p {
+      font-size: 12px;
+      color: var(--text2);
+      margin-top: 2px;
+    }
+
+    .exp-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .period {
+      font-size: 11px;
+      color: var(--text3);
+      white-space: nowrap;
+    }
+
+    .chevron {
+      transition: transform 0.25s;
+      color: var(--text3);
+    }
+
+    .chevron.open {
+      transform: rotate(90deg);
+    }
+
+    .exp-body {
+      border-top: 1px solid var(--border);
+      padding: 1rem 1.25rem;
+      display: none;
+    }
+
+    .exp-body.open {
+      display: block;
+    }
+
+    .exp-items {
+      list-style: none;
+      display: grid;
+      gap: 6px;
+    }
+
+    .exp-items li {
+      font-size: 13px;
+      color: var(--text2);
+      display: flex;
+      gap: 8px;
+      line-height: 1.5;
+    }
+
+    .exp-items li::before {
+      content: '▸';
+      color: var(--accent);
+      flex-shrink: 0;
+      font-size: 10px;
+      margin-top: 3px;
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+    }
+
+    .skill-group {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+    }
+
+    .skill-group-title {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text3);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 10px;
+    }
+
+    .skill-item {
+      margin-bottom: 10px;
+    }
+
+    .skill-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .skill-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+
+    .skill-name {
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    .skill-lvl {
+      font-size: 11px;
+      color: var(--text3);
+    }
+
+    .skill-bar {
+      height: 4px;
+      background: var(--bg3);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .skill-fill {
+      height: 100%;
+      border-radius: 2px;
+      transition: width 1s ease;
+    }
+
+    .fill-blue {
+      background: var(--accent);
+    }
+
+    .fill-green {
+      background: var(--accent2);
+    }
+
+    .fill-gold {
+      background: var(--gold);
+    }
+
+    /* TECH CHIPS */
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .chip {
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      border: 1px solid var(--border2);
+      color: var(--text2);
+      background: var(--bg2);
+    }
+
+    /* COMPETENCIAS */
+    .comp-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 8px;
+    }
+
+    .comp-item {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius2);
+      padding: 10px 12px;
+      font-size: 13px;
+      color: var(--text2);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .comp-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent2);
+      flex-shrink: 0;
+    }
+
+    /* EDUCATION */
+    .edu-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .edu-icon {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+      background: rgba(210, 153, 34, 0.12);
+      border: 1px solid rgba(210, 153, 34, 0.2);
+      border-radius: var(--radius2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .edu-icon svg {
+      width: 16px;
+      height: 16px;
+      color: var(--gold);
+    }
+
+    .edu-title {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .edu-sub {
+      font-size: 12px;
+      color: var(--text2);
+      margin-top: 3px;
+    }
+
+    .edu-period {
+      font-size: 11px;
+      color: var(--text3);
+      margin-top: 2px;
+    }
+
+    /* FOOTER */
+    .footer {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      margin-top: 1rem;
+    }
+
+    .footer p {
+      font-size: 12px;
+      color: var(--text3);
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
       }
-    });
-  }, { threshold: 0.1 });
-  fills.forEach(f => observer.observe(f));
-});
-</script>
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .section {
+      animation: fadeUp 0.4s ease both;
+    }
+
+    .section:nth-child(1) {
+      animation-delay: 0.05s;
+    }
+
+    .section:nth-child(2) {
+      animation-delay: 0.1s;
+    }
+
+    .section:nth-child(3) {
+      animation-delay: 0.15s;
+    }
+
+    .section:nth-child(4) {
+      animation-delay: 0.2s;
+    }
+
+    .section:nth-child(5) {
+      animation-delay: 0.25s;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- HERO -->
+    <div class="hero" style="animation: fadeUp 0.4s ease both;">
+      <div class="hero-top">
+        <div class="avatar">AP</div>
+        <div class="hero-info">
+          <div class="hero-name">Alberto Pérez García</div>
+          <div class="hero-title">Senior Frontend Developer · Angular · Vue.js · JavaScript</div>
+          <div class="badge-row">
+            <span class="badge">Angular · +6 años</span>
+            <span class="badge">Vue.js · +4 años</span>
+            <span class="badge">JavaScript · +6 años</span>
+            <span class="badge green">Frontend Senior</span>
+            <span class="badge gold">Entornos Enterprise</span>
+          </div>
+        </div>
+      </div>
+      <div class="contacts">
+        <a href="mailto:albertopg2003@yahoo.es" class="contact-btn">
+          <svg viewBox="0 0 16 16" fill="currentColor">
+            <path
+              d="M1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0114.25 14H1.75A1.75 1.75 0 010 12.25v-8.5C0 2.784.784 2 1.75 2zM1.5 5.197V12.25c0 .138.112.25.25.25h12.5a.25.25 0 00.25-.25V5.197L8.608 9.768a.75.75 0 01-.916 0L1.5 5.197zm.041-1.568L8 8.092l6.459-4.463H1.541z" />
+          </svg>
+          albertopg2003@yahoo.es
+        </a>
+        <a href="tel:+34667385091" class="contact-btn">
+          <svg viewBox="0 0 16 16" fill="currentColor">
+            <path
+              d="M1.885.511a1.745 1.745 0 012.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 00.178.643l2.457 2.457a.678.678 0 00.644.178l2.189-.547a1.745 1.745 0 011.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 01-7.01-4.42 18.634 18.634 0 01-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+          </svg>
+          667 385 091
+        </a>
+        <a href="https://linkedin.com/in/alberto-pérez-garcía-902880158" target="_blank" class="contact-btn">
+          <svg viewBox="0 0 16 16" fill="currentColor">
+            <path
+              d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 01.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
+          </svg>
+          LinkedIn
+        </a>
+      </div>
+      <div class="hero-bio" style="margin-top: 1.25rem;">
+        Frontend Developer con más de 6 años de experiencia en desarrollo de aplicaciones web en entornos enterprise,
+        principalmente en proyectos para Endesa y administración pública. Especializado en JavaScript, Angular, Vue.js,
+        maquetación avanzada, mantenimiento evolutivo, resolución de incidencias y optimización de rendimiento en
+        aplicaciones en producción.<br><br>También desarrollo proyectos propios de cero a producción, combinando
+        frontend, backend, base de datos, despliegue y visión de producto.
+      </div>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats-grid" style="animation: fadeUp 0.4s ease 0.08s both;">
+      <div class="stat-card">
+        <div class="stat-num">6+</div>
+        <div class="stat-label">Años Frontend</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num gold">4+</div>
+        <div class="stat-label">Años Vue.js</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num green">3+</div>
+        <div class="stat-label">Años Tailwind</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" style="color: #c778dd;">12+</div>
+        <div class="stat-label">Tecnologías</div>
+      </div>
+    </div>
+
+    <!-- EXPERIENCIA -->
+    <div class="section">
+      <div class="section-header">
+        <svg viewBox="0 0 16 16" fill="currentColor">
+          <path
+            d="M10.5 1.5A1.5 1.5 0 009 0H7a1.5 1.5 0 00-1.5 1.5V3h5V1.5zM2 3a2 2 0 00-2 2v9a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H2zm1 4.25a.75.75 0 01.75-.75h8.5a.75.75 0 010 1.5h-8.5A.75.75 0 013 7.25zm.75 2.75a.75.75 0 000 1.5H8a.75.75 0 000-1.5H3.75z" />
+        </svg>
+        Experiencia profesional
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-header" onclick="toggleExp(this)">
+          <div class="exp-left">
+            <div class="company-icon ci-ntt">NTT</div>
+            <div class="exp-info">
+              <h3>Senior Frontend Developer</h3>
+              <p>NTT DATA · Tiempo completo</p>
+            </div>
+          </div>
+          <div class="exp-meta">
+            <span class="period">2019 — Actualidad</span>
+            <svg class="chevron" viewBox="0 0 16 16" fill="currentColor" width="12" height="12">
+              <path
+                d="M6.22 3.22a.75.75 0 011.06 0l4.25 4.25a.75.75 0 010 1.06l-4.25 4.25a.75.75 0 01-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 010-1.06z" />
+            </svg>
+          </div>
+        </div>
+        <div class="exp-body">
+          <ul class="exp-items">
+            <li>Más de 6 años trabajando con JavaScript en proyectos enterprise, principalmente para Endesa</li>
+            <li>Desarrollo de aplicaciones frontend con Angular (+6 años) y Vue.js (+4 años)</li>
+            <li>Desarrollo de nuevas funcionalidades, mantenimiento evolutivo y resolución de incidencias en producción
+            </li>
+            <li>Optimización de rendimiento, mejora de usabilidad y refactorización de código frontend</li>
+            <li>Integración con APIs REST y consumo de servicios mediante Fetch / Axios</li>
+            <li>Desarrollo de aplicaciones desde cero y participación en despliegues</li>
+            <li>Proyecto de actualización de costes hipotecarios para Banco Santander</li>
+            <li>Proyecto ATM para movilidad sostenible en Cataluña</li>
+            <li>Trabajo en entornos ágiles (Scrum) y colaboración con equipos multidisciplinares</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- HABILIDADES -->
+    <div class="section">
+      <div class="section-header">
+        <svg viewBox="0 0 16 16" fill="currentColor">
+          <path
+            d="M5.5 3.5a2 2 0 100 4 2 2 0 000-4zM1 5.5a4.5 4.5 0 117.851 3.041L15.07 15.07a.75.75 0 11-1.06 1.06l-6.22-6.218A4.5 4.5 0 011 5.5z" />
+        </svg>
+        Stack técnico
+      </div>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <div class="skill-group-title">Frontend</div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="skill-name">JavaScript (ES6+)</span><span class="skill-lvl">+6
+                años</span></div>
+            <div class="skill-bar">
+              <div class="skill-fill fill-blue" style="width: 92%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="skill-name">Angular</span><span class="skill-lvl">+6 años</span></div>
+            <div class="skill-bar">
+              <div class="skill-fill fill-blue" style="width: 95%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="skill-name">Vue.js</span><span class="skill-lvl">+4 años</span></div>
+            <div class="skill-bar">
+              <div class="skill-fill fill-green" style="width: 84%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="skill-name">jQuery</span><span class="skill-lvl">+6 años</span></div>
+            <div class="skill-bar">
+              <div class="skill-fill fill-blue" style="width: 86%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="skill-name">TypeScript</span><span class="skill-lvl">Uso en
+                proyectos</span></div>
+            <div class="skill-bar">
+              <div class="skill-fill fill-blue" style="width: 78%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="skill-name">React / Next.js</span><span
+                class="skill-lvl">Experiencia</span></div>
+            <div class="skill-bar">
+              <div class="skill-fill fill-green" style="width: 68%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-title">UI & Backend</div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="skill-name">HTML5 / CSS3 / SCSS</span><span class="skill-lvl">+6
+                años</span></div>
+            <div class="skill-bar">
+              <div class="skill-fill fill-blue" style="width: 88%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="skill-name">Bootstrap</span><span class="skill-lvl">+6 años</span></div>
+            <div class="skill-bar">
+              <div class="skill-fill fill-gold" style="width: 82%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="skill-name">Tailwind CSS</span><span class="skill-lvl">+3 años</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-fill fill-green" style="width: 74%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="skill-name">Node.js / Express</span><span
+                class="skill-lvl">Intermedio</span></div>
+            <div class="skill-bar">
+              <div class="skill-fill fill-green" style="width: 62%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="skill-name">MySQL</span><span class="skill-lvl">+4 años</span></div>
+            <div class="skill-bar">
+              <div class="skill-fill fill-gold" style="width: 65%"></div>
+            </div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span class="skill-name">Java / C#</span><span class="skill-lvl">Java 1 año · C# 2
+                años</span></div>
+            <div class="skill-bar">
+              <div class="skill-fill fill-gold" style="width: 48%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top: 12px;">
+        <div class="chips">
+          <span class="chip">Git</span>
+          <span class="chip">REST APIs</span>
+          <span class="chip">Fetch / Axios</span>
+          <span class="chip">Agile / Scrum</span>
+          <span class="chip">HTML5</span>
+          <span class="chip">Vite</span>
+          <span class="chip">Webpack</span>
+          <span class="chip">RxJS</span>
+          <span class="chip">NgRx</span>
+          <span class="chip">Pinia / Vuex</span>
+          <span class="chip">Jest / Jasmine</span>
+          <span class="chip">Cypress</span>
+          <span class="chip">Oracle WebCenter Sites</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROYECTOS -->
+    <div class="section">
+      <div class="section-header">
+        <svg viewBox="0 0 16 16" fill="currentColor">
+          <path
+            d="M2 2.5A2.5 2.5 0 014.5 0h7A2.5 2.5 0 0114 2.5v10a2.5 2.5 0 01-2.5 2.5h-7A2.5 2.5 0 012 12.5v-10zm2.5-1a1 1 0 00-1 1v10a1 1 0 001 1h7a1 1 0 001-1v-10a1 1 0 00-1-1h-7zM5.75 4a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zm0 3a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zm0 3a.75.75 0 000 1.5h2.5a.75.75 0 000-1.5h-2.5z" />
+        </svg>
+        Proyectos destacados
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px;"
+        class="section">
+
+        <div class="exp-card" style="margin-bottom: 0;">
+          <div style="padding: 1rem 1.25rem;">
+            <div
+              style="display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 8px;">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <div
+                  style="width: 36px; height: 36px; border-radius: 6px; background: rgba(63,185,80,0.12); border: 1px solid rgba(63,185,80,0.2); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0;">
+                  🎲</div>
+                <div>
+                  <div style="font-size: 14px; font-weight: 600;">La Casa de los Juegos</div>
+                  <div style="font-size: 12px; color: var(--text2); margin-top: 1px;">lacasadelosjuegos.com</div>
+                </div>
+              </div>
+              <div style="display: flex; gap: 8px; align-items: center; padding-top: 2px;">
+                <a href="https://github.com/Asere2003/la-casa-de-los-juegos" target="_blank"
+                  style="color: var(--text2); text-decoration: none; font-size: 11px; white-space: nowrap; display: flex; align-items: center; gap: 3px;">
+                  <svg viewBox="0 0 16 16" fill="currentColor" width="12" height="12">
+                    <path
+                      d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                  </svg>
+                  Código
+                </a>
+                <a href="https://lacasadelosjuegos.com" target="_blank"
+                  style="color: var(--accent); text-decoration: none; font-size: 11px; white-space: nowrap; display: flex; align-items: center; gap: 3px;">
+                  Demo
+                  <svg viewBox="0 0 16 16" fill="currentColor" width="10" height="10">
+                    <path
+                      d="M3.75 2h3.5a.75.75 0 010 1.5h-3.5a.25.25 0 00-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 00.25-.25v-3.5a.75.75 0 011.5 0v3.5A1.75 1.75 0 0112.25 14h-8.5A1.75 1.75 0 012 12.25v-8.5C2 2.784 2.784 2 3.75 2zm6.854-1h4.146a.25.25 0 01.25.25v4.146a.25.25 0 01-.427.177L13.03 4.03 9.28 7.78a.75.75 0 01-1.06-1.06l3.75-3.75-1.543-1.543A.25.25 0 0110.604 1z" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <p style="font-size: 13px; color: var(--text2); line-height: 1.6; margin-bottom: 10px;">Ecommerce completo
+              de juegos de mesa construido de cero a producción. Incluye catálogo, carrito, checkout con Stripe, panel
+              de administración, sistema de pedidos y base de datos.</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+              <span class="badge green">Next.js 14</span>
+              <span class="badge">Supabase</span>
+              <span class="badge">Stripe</span>
+              <span class="badge">TypeScript</span>
+              <span class="badge gold">Proyecto propio</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-card" style="margin-bottom: 0;">
+          <div style="padding: 1rem 1.25rem;">
+            <div style="display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px;">
+              <div
+                style="width: 36px; height: 36px; border-radius: 6px; background: rgba(56,139,253,0.12); border: 1px solid rgba(56,139,253,0.2); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0;">
+                🚌</div>
+              <div>
+                <div style="font-size: 14px; font-weight: 600;">Plataformas de Movilidad Urbana</div>
+                <div style="font-size: 12px; color: var(--text2); margin-top: 1px;">NTT DATA · Administración pública
+                </div>
+              </div>
+            </div>
+            <p style="font-size: 13px; color: var(--text2); line-height: 1.6; margin-bottom: 10px;">Aplicaciones
+              frontend para movilidad sostenible y gestión pública. Desarrollo de funcionalidades, mantenimiento
+              evolutivo, optimización de rendimiento e integración con APIs REST.</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+              <span class="badge">Vue.js</span>
+              <span class="badge">Angular</span>
+              <span class="badge">JavaScript</span>
+              <span class="badge">REST APIs</span>
+              <span class="badge gold">Enterprise</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-card" style="margin-bottom: 0;">
+          <div style="padding: 1rem 1.25rem;">
+            <div
+              style="display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 8px;">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <div
+                  style="width: 36px; height: 36px; border-radius: 6px; background: rgba(210,153,34,0.12); border: 1px solid rgba(210,153,34,0.2); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0;">
+                  🔧</div>
+                <div>
+                  <div style="font-size: 14px; font-weight: 600;">Neumáticos Ramos</div>
+                  <div style="font-size: 12px; color: var(--text2); margin-top: 1px;">neumaticosramos.es</div>
+                </div>
+              </div>
+              <a href="https://www.neumaticosramos.es" target="_blank"
+                style="color: var(--accent); text-decoration: none; font-size: 11px; white-space: nowrap; display: flex; align-items: center; gap: 3px; padding-top: 2px;">
+                Demo
+                <svg viewBox="0 0 16 16" fill="currentColor" width="10" height="10">
+                  <path
+                    d="M3.75 2h3.5a.75.75 0 010 1.5h-3.5a.25.25 0 00-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 00.25-.25v-3.5a.75.75 0 011.5 0v3.5A1.75 1.75 0 0112.25 14h-8.5A1.75 1.75 0 012 12.25v-8.5C2 2.784 2.784 2 3.75 2zm6.854-1h4.146a.25.25 0 01.25.25v4.146a.25.25 0 01-.427.177L13.03 4.03 9.28 7.78a.75.75 0 01-1.06-1.06l3.75-3.75-1.543-1.543A.25.25 0 0110.604 1z" />
+                </svg>
+              </a>
+            </div>
+            <p style="font-size: 13px; color: var(--text2); line-height: 1.6; margin-bottom: 10px;">Web corporativa para
+              negocio local de automoción. Diseño, desarrollo y puesta en producción como proyecto freelance.</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+              <span class="badge">Angular</span>
+              <span class="badge">TypeScript</span>
+              <span class="badge">Railway</span>
+              <span class="badge gold">Freelance</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-card" style="margin-bottom: 0;">
+          <div style="padding: 1rem 1.25rem;">
+            <div
+              style="display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 8px;">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <div
+                  style="width: 36px; height: 36px; border-radius: 6px; background: rgba(210,153,34,0.12); border: 1px solid rgba(210,153,34,0.2); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0;">
+                  🎤</div>
+                <div>
+                  <div style="font-size: 14px; font-weight: 600;">Caribe Show Music</div>
+                  <div style="font-size: 12px; color: var(--text2); margin-top: 1px;">caribeshow.netlify.app</div>
+                </div>
+              </div>
+              <a href="https://caribeshow.netlify.app/" target="_blank"
+                style="color: var(--accent); text-decoration: none; font-size: 11px; white-space: nowrap; display: flex; align-items: center; gap: 3px; padding-top: 2px;">
+                Demo
+                <svg viewBox="0 0 16 16" fill="currentColor" width="10" height="10">
+                  <path
+                    d="M3.75 2h3.5a.75.75 0 010 1.5h-3.5a.25.25 0 00-.25.25v8.5c0 .138.112.25.25.25h8.5a.25.25 0 00.25-.25v-3.5a.75.75 0 011.5 0v3.5A1.75 1.75 0 0112.25 14h-8.5A1.75 1.75 0 012 12.25v-8.5C2 2.784 2.784 2 3.75 2zm6.854-1h4.146a.25.25 0 01.25.25v4.146a.25.25 0 01-.427.177L13.03 4.03 9.28 7.78a.75.75 0 01-1.06-1.06l3.75-3.75-1.543-1.543A.25.25 0 0110.604 1z" />
+                </svg>
+              </a>
+            </div>
+            <p style="font-size: 13px; color: var(--text2); line-height: 1.6; margin-bottom: 10px;">Landing page para
+              grupo musical orientado a contratación de eventos, verbenas y fiestas. Incluye presentación del equipo,
+              galería, repertorio, agenda de fechas y llamada directa a contacto.</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+              <span class="badge">Responsive</span>
+              <span class="badge">UI / UX</span>
+              <span class="badge">Netlify</span>
+              <span class="badge">Landing Page</span>
+              <span class="badge gold">Freelance</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section-header">
+        <!-- 
+       -->
+        <svg viewBox="0 0 16 16" fill="currentColor">
+          <path d="M6 2L2 8l4 6h2L4 8l4-6H6zm4 0h2l4 6-4 6h-2l4-6-4-6z" />
+        </svg>
+        Competencias
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px;"
+        class="section">
+        <div class="comp-grid">
+          <div class="comp-item">
+            <div class="comp-dot"></div> Desarrollo frontend senior
+          </div>
+          <div class="comp-item">
+            <div class="comp-dot"></div> Trabajo en equipo
+          </div>
+          <div class="comp-item">
+            <div class="comp-dot"></div> Comunicación con cliente
+          </div>
+          <div class="comp-item">
+            <div class="comp-dot"></div> Resolución de incidencias
+          </div>
+          <div class="comp-item">
+            <div class="comp-dot"></div> Optimización de rendimiento
+          </div>
+          <div class="comp-item">
+            <div class="comp-dot"></div> Aprendizaje continuo
+          </div>
+        </div>
+      </div>
+
+      <!-- EDUCACIÓN -->
+      <div class="section">
+        <div class="section-header">
+          <svg viewBox="0 0 16 16" fill="currentColor">
+            <path
+              d="M1.5 6.5A1.5 1.5 0 013 5h10a1.5 1.5 0 011.5 1.5V10h-1V6.5a.5.5 0 00-.5-.5H3a.5.5 0 00-.5.5V10h-1V6.5z" />
+            <path
+              d="M3 10.5A1.5 1.5 0 011.5 12v1A1.5 1.5 0 003 14.5h10A1.5 1.5 0 0014.5 13v-1A1.5 1.5 0 0013 10.5H3z" />
+            <path d="M8 0L1 3.5 8 7l7-3.5L8 0zM2 5.325v2.6l6 3 6-3v-2.6L8 8.25 2 5.325z" />
+          </svg>
+          Educación
+        </div>
+        <div class="edu-card">
+          <div class="edu-icon">
+            <svg viewBox="0 0 16 16" fill="currentColor">
+              <path d="M8 0L1 3.5 8 7l7-3.5L8 0zM2 5.325v2.6l6 3 6-3v-2.6L8 8.25 2 5.325z" />
+            </svg>
+          </div>
+          <div>
+            <div class="edu-title">Técnico Superior en Desarrollo de Aplicaciones Web</div>
+            <div class="edu-sub">Escuela Artegranada · Granada, España</div>
+            <div class="edu-period">2017 — 2019 · Nota media aproximada: 8,75</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <p>Alberto Pérez García · Senior Frontend Developer · Granada, España · 2026</p>
+      </div>
+
+    </div>
+
+    <script>
+      function toggleExp(header) {
+        const body = header.nextElementSibling;
+        const chevron = header.querySelector('.chevron');
+        const isOpen = body.classList.contains('open');
+        body.classList.toggle('open', !isOpen);
+        chevron.classList.toggle('open', !isOpen);
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const fills = document.querySelectorAll('.skill-fill');
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(e => {
+            if (e.isIntersecting) {
+              const w = e.target.style.width;
+              e.target.style.width = '0';
+              requestAnimationFrame(() => { e.target.style.width = w; });
+              observer.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.1 });
+        fills.forEach(f => observer.observe(f));
+      });
+    </script>
 </body>
+
 </html>

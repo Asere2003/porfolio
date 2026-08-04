@@ -1,4 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
+
 import { Resend } from 'resend';
 
 const LIMITS = {
@@ -43,6 +44,7 @@ const isAllowedOrigin = (origin: string | undefined): boolean => {
 
     return (
       origin === 'https://albertoperez.dev' ||
+      origin === 'https://www.albertoperez.dev' ||
       configuredOrigins.includes(origin) ||
       (url.protocol === 'https:' && url.hostname.endsWith('.vercel.app')) ||
       ((url.protocol === 'http:' || url.protocol === 'https:') &&

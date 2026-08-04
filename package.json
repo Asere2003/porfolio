@@ -44,6 +44,7 @@
     "@playwright/test": "^1.62.1",
     "@types/express": "^5.0.1",
     "@types/node": "^20.17.19",
+    "@vercel/node": "^5.9.5",
     "angular-eslint": "^22.1.0",
     "eslint": "^10.8.0",
     "eslint-config-prettier": "^10.1.8",

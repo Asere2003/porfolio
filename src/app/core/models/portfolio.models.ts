@@ -32,8 +32,12 @@ export interface SocialLink {
 export interface SeoMetadata {
   readonly title: string;
   readonly description: string;
-  readonly canonical: string;
+  readonly canonicalPath: string;
+  readonly robots?: string;
+  readonly ogType?: 'website' | 'article';
   readonly image?: string;
+  readonly imageAlt?: string;
+  readonly structuredData?: readonly Record<string, unknown>[];
 }
 export type ContactState = 'idle' | 'submitting' | 'success' | 'error' | 'rate-limit' | 'invalid';
 export interface ContactPayload {

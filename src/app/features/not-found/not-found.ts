@@ -1,5 +1,7 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { NOT_FOUND_SEO } from '../../core/seo/seo.metadata';
+import { SeoService } from '../../core/seo/seo.service';
 @Component({
   selector: 'app-not-found',
   imports: [RouterLink],
@@ -11,4 +13,8 @@ import { RouterLink } from '@angular/router';
     <a class="button primary" routerLink="/">Volver al inicio</a>
   </main>`,
 })
-export class NotFound {}
+export class NotFound {
+  constructor() {
+    inject(SeoService).set(NOT_FOUND_SEO);
+  }
+}

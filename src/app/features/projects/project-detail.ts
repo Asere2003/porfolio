@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { SeoService } from '../../core/seo/seo.service';
+import { PROJECT_SEO } from '../../core/seo/seo.metadata';
 import { PROJECTS } from '../../data/portfolio.data';
 @Component({
   selector: 'app-project-detail',
@@ -31,11 +32,6 @@ import { PROJECTS } from '../../data/portfolio.data';
 export class ProjectDetail {
   protected readonly project = PROJECTS[0];
   constructor() {
-    inject(SeoService).set({
-      title: 'La Casa de los Juegos | Proyecto Full Stack de Alberto Pérez',
-      description:
-        'Caso de estudio del e-commerce La Casa de los Juegos, diseñado y desarrollado integralmente por Alberto Pérez.',
-      canonical: 'https://albertoperez.dev/proyectos/la-casa-de-los-juegos',
-    });
+    inject(SeoService).set(PROJECT_SEO);
   }
 }

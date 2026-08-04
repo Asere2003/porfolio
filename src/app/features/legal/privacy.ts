@@ -1,4 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { PRIVACY_SEO } from '../../core/seo/seo.metadata';
+import { SeoService } from '../../core/seo/seo.service';
 @Component({
   selector: 'app-privacy',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -27,4 +29,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     </p>
   </main>`,
 })
-export class Privacy {}
+export class Privacy {
+  constructor() {
+    inject(SeoService).set(PRIVACY_SEO);
+  }
+}

@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { SeoService } from '../../core/seo/seo.service';
+import { HOME_SEO } from '../../core/seo/seo.metadata';
 import {
   EXPERIENCES,
   PROJECTS,
@@ -158,11 +159,6 @@ export class Home {
   protected readonly technologies = TECHNOLOGIES;
   protected readonly socials = SOCIAL_LINKS;
   constructor() {
-    inject(SeoService).set({
-      title: 'Alberto Pérez | Senior Angular & Frontend Engineer',
-      description:
-        'Senior Software Engineer especializado en Angular, TypeScript, microfrontends y arquitecturas frontend escalables para aplicaciones enterprise.',
-      canonical: 'https://albertoperez.dev',
-    });
+    inject(SeoService).set(HOME_SEO);
   }
 }

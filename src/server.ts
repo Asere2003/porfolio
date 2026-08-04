@@ -1,12 +1,15 @@
+import 'dotenv/config';
+
 import {
   AngularNodeAppEngine,
   createNodeRequestHandler,
   isMainModule,
   writeResponseToNodeResponse,
 } from '@angular/ssr/node';
+
+import { Resend } from 'resend';
 import express from 'express';
 import { join } from 'node:path';
-import { Resend } from 'resend';
 
 const browserDistFolder = join(import.meta.dirname, '../browser');
 
@@ -65,6 +68,7 @@ app.post(
       return;
     }
     const apiKey = process.env['RESEND_API_KEY'];
+    console.log('RESEND_API_KEY cargada:', Boolean(apiKey));
     if (!apiKey) {
       res.status(503).json({ message: 'Servicio temporalmente no disponible.' });
       return;

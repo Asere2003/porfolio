@@ -44,3 +44,8 @@ playwright-report/
 # System files
 .DS_Store
 Thumbs.db
+
+# Secret files
+.env
+.env.*
+!.env.example

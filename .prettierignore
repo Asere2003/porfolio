@@ -1,0 +1,4 @@
+legacy/
+dist/
+playwright-report/
+test-results/

@@ -479,17 +479,24 @@ footer p {
     grid-template-columns: 1fr;
   }
   .hero {
+    grid-template-columns: 1fr;
     padding-top: 4rem;
     gap: 2rem;
   }
   .hero-visual {
-    max-width: 440px;
-    width: 100%;
+    width: 50%;
     margin: auto;
   }
   .card-grid,
   .technologies {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .hero-visual {
+    order: 1;
+    justify-self: center;
+  }
+  .hero-copy {
+    order: 2;
   }
 }
 @media (max-width: 640px) {
@@ -499,6 +506,18 @@ footer p {
   }
   .menu-button {
     display: block;
+  }
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .hero-visual {
+    width: 50%;
+    order: 1;
+    justify-self: center;
+  }
+  .hero-copy {
+    order: 2;
   }
   nav {
     display: none;

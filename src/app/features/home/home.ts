@@ -1,7 +1,4 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { SeoService } from '../../core/seo/seo.service';
-import { HOME_SEO } from '../../core/seo/seo.metadata';
 import {
   EXPERIENCES,
   PROJECTS,
@@ -9,7 +6,12 @@ import {
   SOCIAL_LINKS,
   TECHNOLOGIES,
 } from '../../data/portfolio.data';
+
 import { ContactForm } from './contact-form';
+import { HOME_SEO } from '../../core/seo/seo.metadata';
+import { RouterLink } from '@angular/router';
+import { SeoService } from '../../core/seo/seo.service';
+
 @Component({
   selector: 'app-home',
   imports: [RouterLink, ContactForm],

@@ -111,7 +111,7 @@ nav a:hover {
 .section {
   width: min(var(--max), calc(100% - 3rem));
   margin: auto;
-  padding: 6.5rem 0;
+  padding: 4rem 0;
 }
 .hero {
   min-height: calc(100vh - 5rem);
@@ -256,7 +256,7 @@ h3 {
 .monogram {
   font-size: clamp(4rem, 10vw, 8rem);
   font-weight: 950;
-  letter-spacing: -0.1em;
+  letter-spacing: -2px;
   background: linear-gradient(135deg, #fff, #4397ff);
   color: transparent;
   background-clip: text;
@@ -437,7 +437,7 @@ textarea {
 }
 .prose h1 {
   font-size: clamp(2.5rem, 6vw, 5rem);
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 .prose h2 {
   margin-top: 3rem;

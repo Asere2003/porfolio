@@ -83,6 +83,45 @@ import { SeoService } from '../../core/seo/seo.service';
             <span class="icon" aria-hidden="true">{{ service.icon }}</span>
             <h3>{{ service.title }}</h3>
             <p>{{ service.description }}</p>
+            @if ($first) {
+              <svg class="service-illustration" viewBox="0 0 520 230" aria-hidden="true" focusable="false">
+                <defs>
+                  <linearGradient id="developer-screen" x1="0" x2="1" y1="0" y2="1">
+                    <stop stop-color="#27346f" />
+                    <stop offset="1" stop-color="#11182e" />
+                  </linearGradient>
+                  <linearGradient id="developer-laptop" x1="0" x2="1" y1="0" y2="1">
+                    <stop stop-color="#8b9cff" stop-opacity="0.75" />
+                    <stop offset="1" stop-color="#303f85" stop-opacity="0.3" />
+                  </linearGradient>
+                  <radialGradient id="developer-glow">
+                    <stop stop-color="#7188e8" stop-opacity="0.3" />
+                    <stop offset="1" stop-color="#7188e8" stop-opacity="0" />
+                  </radialGradient>
+                </defs>
+                <ellipse class="service-illustration__glow" cx="325" cy="112" rx="155" ry="112" fill="url(#developer-glow)" />
+                <path class="service-illustration__orbit" d="M146 169c62-101 209-128 310-54 43 31 55 80 23 105" />
+                <path class="service-illustration__orbit service-illustration__orbit--secondary" d="M187 45c87-43 219-19 275 55" />
+                <g class="service-illustration__developer">
+                  <circle cx="274" cy="73" r="23" />
+                  <path d="M234 142c2-33 18-53 40-53s42 20 45 53" />
+                  <path d="M253 94c6 9 31 12 43-2" />
+                </g>
+                <g class="service-illustration__laptop">
+                  <rect x="285" y="112" width="143" height="83" rx="7" fill="url(#developer-screen)" />
+                  <rect x="291" y="118" width="131" height="70" rx="4" />
+                  <path d="M262 198h184l16 13H246l16-13Z" fill="url(#developer-laptop)" />
+                  <path d="M307 128h73M307 140h54M307 152h64M307 164h35" />
+                  <circle cx="402" cy="129" r="3" />
+                </g>
+                <g class="service-illustration__nodes">
+                  <circle cx="164" cy="92" r="4" />
+                  <circle cx="190" cy="145" r="3" />
+                  <circle cx="454" cy="75" r="4" />
+                  <path d="M164 92h59M190 145h55M428 96l26-21" />
+                </g>
+              </svg>
+            }
             <div class="chips">
               @for (technology of service.technologies; track technology) {
                 <span>{{ technology }}</span>

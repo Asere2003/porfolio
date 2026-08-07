@@ -33,21 +33,42 @@ import { SeoService } from '../../core/seo/seo.service';
           <span>Angular Expert</span><span>Enterprise Applications</span
           ><span>Full Stack Support</span>
         </div>
-        <div class="actions">
-          <a class="button primary" href="#contacto">Contactar</a
-          ><a class="button" href="/Alberto-Perez-Garcia-CV.pdf" download>Descargar CV</a>
+        <div class="hero-actions">
+          <a class="hero-button hero-button--primary" href="#contacto">Contactar</a
+          ><a class="hero-button hero-button--secondary" href="#proyectos">Ver proyectos ↓</a>
+        </div>
+        <div class="hero-links">
+          <a href="/Alberto-Perez-Garcia-CV.pdf" download>Descargar CV</a>
           @for (social of socials; track social.url) {
-            <a class="button" [href]="social.url" target="_blank" rel="noopener noreferrer"
+            <a [href]="social.url" target="_blank" rel="noopener noreferrer"
               >{{ social.label }} ↗</a
             >
           }
-          <a class="text-link" href="#proyectos">Ver proyectos ↓</a>
         </div>
       </div>
-      <div class="hero-visual" aria-hidden="true">
-        <div class="orbit"></div>
-        <div class="monogram">AP</div>
-        <code>&lt;frontend architecture /&gt;</code>
+      <div class="hero-laptop-scene" aria-hidden="true">
+        <div class="hero-laptop-glow"></div>
+        <div class="hero-laptop">
+          <div class="hero-laptop__lid">
+            <div class="hero-laptop__screen">
+              <div class="hero-laptop__screen-grid"></div>
+              <div class="hero-laptop__screen-orbit"></div>
+              <div class="hero-laptop__screen-line hero-laptop__screen-line--one"></div>
+              <div class="hero-laptop__screen-line hero-laptop__screen-line--two"></div>
+              <div class="hero-laptop__identity">
+                <span class="hero-laptop__monogram">AP</span>
+                <span class="hero-laptop__role">Senior Angular &amp;<br />Frontend Engineer</span>
+              </div>
+              <code>&lt;frontend architecture /&gt;</code>
+              <div class="hero-laptop__screen-reflection"></div>
+            </div>
+          </div>
+          <div class="hero-laptop__hinge"></div>
+          <div class="hero-laptop__base">
+            <div class="hero-laptop__keyboard"></div>
+            <div class="hero-laptop__trackpad"></div>
+          </div>
+        </div>
       </div>
     </section>
     <section class="section" id="servicios">

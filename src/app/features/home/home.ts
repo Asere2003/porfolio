@@ -216,9 +216,9 @@ import { SeoService } from '../../core/seo/seo.service';
       </div>
       <div class="card-grid technologies">
         @for (group of technologies; track group.name) {
-          <article class="card">
+          <article class="card stack-panel">
             <h3>{{ group.name }}</h3>
-            <div class="chips">
+            <div class="chips stack-technologies">
               @for (technology of group.technologies; track technology) {
                 <span>{{ technology }}</span>
               }

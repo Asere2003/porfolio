@@ -162,28 +162,49 @@ import { SeoService } from '../../core/seo/seo.service';
       </div>
       @for (project of projects; track project.slug) {
         <article class="featured-project">
-          <div>
+          <div class="browser-mockup">
+            <div class="browser-toolbar" aria-hidden="true">
+              <div class="browser-controls"><i></i><i></i><i></i></div>
+              <div class="browser-address">{{ project.publicUrl }}</div>
+              <div class="browser-menu"><i></i><i></i><i></i></div>
+            </div>
+            <div class="browser-viewport">
+              <img
+                src="/images/projects/la-casa-de-los-juegos-home.png"
+                [alt]="'Captura real de ' + project.title"
+                width="1600"
+                height="1280"
+                loading="lazy"
+              />
+            </div>
+          </div>
+          <div class="project-copy">
             <p class="eyebrow">{{ project.sector }}</p>
             <h3>{{ project.title }}</h3>
-            <p>{{ project.description }}</p>
+            <p class="project-description">{{ project.description }}</p>
             <div class="chips">
               @for (technology of project.technologies; track technology) {
                 <span>{{ technology }}</span>
               }
             </div>
-            <div class="actions">
+            <ul class="project-features">
+              @for (feature of project.features; track feature) {
+                <li>{{ feature }}</li>
+              }
+            </ul>
+            <div class="hero-actions project-actions">
               <a
-                class="button primary"
+                class="hero-button hero-button--primary"
                 [href]="project.publicUrl"
                 target="_blank"
                 rel="noopener noreferrer"
                 >Visitar proyecto ↗</a
-              ><a class="button" [routerLink]="['/proyectos', project.slug]">Ver caso</a>
+              ><a
+                class="hero-button hero-button--secondary"
+                [routerLink]="['/proyectos', project.slug]"
+                >Ver caso</a
+              >
             </div>
-          </div>
-          <div class="project-preview" aria-label="Vista conceptual del proyecto">
-            <span>La Casa de los Juegos</span><strong>Tu próxima partida empieza aquí</strong>
-            <div class="mini-cards"><i></i><i></i><i></i></div>
           </div>
         </article>
       }

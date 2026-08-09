@@ -139,15 +139,17 @@ import { SeoService } from '../../core/seo/seo.service';
       </div>
       <div class="timeline">
         @for (experience of experiences; track experience.company) {
-          <article>
-            <div class="timeline-marker"></div>
-            <p class="company">{{ experience.company }}</p>
-            <h3>{{ experience.title }}</h3>
-            <p>{{ experience.description }}</p>
-            <div class="chips">
-              @for (technology of experience.technologies; track technology) {
-                <span>{{ technology }}</span>
-              }
+          <article class="timeline-entry">
+            <div class="timeline-marker" aria-hidden="true"></div>
+            <div class="timeline-panel">
+              <p class="company">{{ experience.company }}</p>
+              <h3>{{ experience.title }}</h3>
+              <p class="timeline-description">{{ experience.description }}</p>
+              <div class="chips timeline-technologies">
+                @for (technology of experience.technologies; track technology) {
+                  <span>{{ technology }}</span>
+                }
+              </div>
             </div>
           </article>
         }

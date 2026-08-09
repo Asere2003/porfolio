@@ -10,6 +10,7 @@ import {
 import { ContactForm } from './contact-form';
 import { HOME_SEO } from '../../core/seo/seo.metadata';
 import { RouterLink } from '@angular/router';
+import { SeoService } from '../../core/seo/seo.service';
 
 const TECHNOLOGY_ICONS: Readonly<Record<string, string>> = {
   Angular: 'angular',
@@ -38,7 +39,6 @@ const TECHNOLOGY_ICONS: Readonly<Record<string, string>> = {
   Jasmine: 'jasmine',
   Cypress: 'cypress',
 };
-import { SeoService } from '../../core/seo/seo.service';
 
 @Component({
   selector: 'app-home',
@@ -101,7 +101,7 @@ import { SeoService } from '../../core/seo/seo.service';
     </section>
     <section class="section" id="servicios">
       <div class="section-heading">
-        <p class="eyebrow">Servicios</p>
+        <p class="eyebrow available">Servicios</p>
         <h2>Cómo puedo ayudarte</h2>
         <p>Ingeniería frontend que convierte complejidad técnica en productos fiables.</p>
       </div>
@@ -161,7 +161,7 @@ import { SeoService } from '../../core/seo/seo.service';
     </section>
     <section class="section" id="experiencia">
       <div class="section-heading">
-        <p class="eyebrow">Experiencia</p>
+        <p class="eyebrow available">Experiencia</p>
         <h2>Casos profesionales enterprise</h2>
         <p>Trabajo seleccionado sin exponer información confidencial ni enlaces internos.</p>
       </div>
@@ -185,7 +185,7 @@ import { SeoService } from '../../core/seo/seo.service';
     </section>
     <section class="section" id="proyectos">
       <div class="section-heading">
-        <p class="eyebrow">Proyecto propio publicado</p>
+        <p class="eyebrow available">Proyecto propio publicado</p>
         <h2>Producto Full Stack</h2>
       </div>
       @for (project of projects; track project.slug) {
@@ -239,7 +239,7 @@ import { SeoService } from '../../core/seo/seo.service';
     </section>
     <section class="section" id="stack">
       <div class="section-heading">
-        <p class="eyebrow">Stack técnico</p>
+        <p class="eyebrow available">Stack técnico</p>
         <h2>Tecnologías principales</h2>
       </div>
       <div class="card-grid technologies">

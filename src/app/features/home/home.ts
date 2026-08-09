@@ -10,6 +10,34 @@ import {
 import { ContactForm } from './contact-form';
 import { HOME_SEO } from '../../core/seo/seo.metadata';
 import { RouterLink } from '@angular/router';
+
+const TECHNOLOGY_ICONS: Readonly<Record<string, string>> = {
+  Angular: 'angular',
+  TypeScript: 'typescript',
+  JavaScript: 'javascript',
+  RxJS: 'reactivex',
+  'Vue.js': 'vuedotjs',
+  React: 'react',
+  'Next.js': 'nextdotjs',
+  HTML5: 'html5',
+  CSS3: 'css',
+  SCSS: 'sass',
+  Tailwind: 'tailwindcss',
+  Bootstrap: 'bootstrap',
+  'Angular Material': 'angular',
+  'Node.js': 'nodedotjs',
+  Express: 'express',
+  'REST APIs': 'openapiinitiative',
+  MySQL: 'mysql',
+  Java: 'openjdk',
+  'C#': 'dotnet',
+  Git: 'git',
+  Vite: 'vite',
+  Webpack: 'webpack',
+  Jest: 'jest',
+  Jasmine: 'jasmine',
+  Cypress: 'cypress',
+};
 import { SeoService } from '../../core/seo/seo.service';
 
 @Component({
@@ -220,7 +248,15 @@ import { SeoService } from '../../core/seo/seo.service';
             <h3>{{ group.name }}</h3>
             <div class="chips stack-technologies">
               @for (technology of group.technologies; track technology) {
-                <span>{{ technology }}</span>
+                <span
+                  ><img
+                    [src]="'/images/technologies/' + technologyIcons[technology] + '.svg'"
+                    alt=""
+                    width="20"
+                    height="20"
+                    loading="eager"
+                  />{{ technology }}</span
+                >
               }
             </div>
           </article>
@@ -242,6 +278,7 @@ export class Home {
   protected readonly experiences = EXPERIENCES;
   protected readonly projects = PROJECTS;
   protected readonly technologies = TECHNOLOGIES;
+  protected readonly technologyIcons = TECHNOLOGY_ICONS;
   protected readonly socials = SOCIAL_LINKS;
   constructor() {
     inject(SeoService).set(HOME_SEO);
